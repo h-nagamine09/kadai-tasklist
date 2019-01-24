@@ -1,6 +1,4 @@
-<div class="cotainer">
- 
-    <%= form_for(task) do |f| %>
+  <%= form_for(task) do |f| %>
        <% if task.errors.any? %>
    <div class ="alert alert-warning">
      <ul>
@@ -21,6 +19,5 @@
      <%= f.text_field :status,class: 'form-control'%>
     </div>
         <%= f.submit '追加' ,class: 'btn btn-primary'%>
-    <% end %>
+  <% end %>
 
-</div>
