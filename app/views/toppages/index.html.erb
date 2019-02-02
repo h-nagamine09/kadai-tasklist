@@ -1,0 +1,18 @@
+<!--ログインが成功した場合-->
+<% if logged_in? %>
+ <p>ログイン完了 <%= current_user.name %></p>
+ <!--ログインが失敗した場合-->
+ <% else %>
+<div class="center jumbotron">
+  <div class="text-center">
+    <!--タスクリストWebアプリのトップページ-->
+    <h1>Your Tasklists</h1>
+   
+      <!--ログイン、サインアップリンクをトップページに配置-->
+     <%= link_to 'ログイン',login_path, class:'btn btn-primaly' %>
+      <!--新規ユーザ登録ページへ飛ぶリンク。signup_pathにリンク。-->
+      <%= link_to '今すぐ新規ユーザ登録',signup_path, class:'btn btn-primaly' %>
+  
+  </div>
+</div>
+<% end %>
