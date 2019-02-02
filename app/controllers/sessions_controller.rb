@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     if login(email,password)
       # ログイン成功
       flash[:success] = 'ログインに成功しました'
-      # @userのusers#showへリダイレクト
-      redirect_to @user
+      # @taskのtasks#showへリダイレクト
+      redirect_to @task
     else
       # ログイン失敗
       flash.now[:danger] = 'ログインに失敗しました'

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # index,shoにおいて事前にrequire_user_logged_inが実行される。ログインしていなければログインページに強制的にリダイレクトする
+  before_action :require_user_logged_in, only: [:index, :show]
   def index
     # 全ユーザ一覧を取得
     @users = User.all.page(params[:page])

@@ -11,4 +11,7 @@ class User < ApplicationRecord
   # パスワードを暗号化して保存
   # ログイン認証用のメソッドauthenticateを提供する
   has_secure_password
+  
+  # UserからTaskをみた時複数存在する
+  has_many :tasks
 end
