@@ -16,10 +16,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # save成功時にはredirect_to @userにいきつく
+    # save成功時にはredirect_to rootにいきつく
     if @user.save
       flash[:success] = 'ユーザ登録しました。'
-      redirect_to @user
+      redirect_to root_url
       # save失敗時には render :newにいきつく
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました'
