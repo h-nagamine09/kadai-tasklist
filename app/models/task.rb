@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   # userとtaskの一対多
-  belong_to :user
+  belongs_to :user
   
   validates :content,presence: true, length: {maximum: 255}
   validates :status,presence: true, length: {maximum: 10}

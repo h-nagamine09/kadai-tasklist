@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  # def new
+  # end
 
   def create
     # emailを取得。paramsにsessions.newフォームデータが代入されていて２段階にして取り出す。downcaseで小文字に変換
@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
     if login(email,password)
       # ログイン成功
       flash[:success] = 'ログインに成功しました'
-      # @taskのtasks#showへリダイレクト
-      redirect_to @task
+      redirect_to root_url
     else
       # ログイン失敗
       flash.now[:danger] = 'ログインに失敗しました'
@@ -20,6 +19,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    flash[:success] = 'ログアウトしました'
+    redirect_to root_url
   end
   
   private

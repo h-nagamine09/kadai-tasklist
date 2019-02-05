@@ -1,6 +1,8 @@
+<!--ログインが成功した場合-->
+<% if logged_in? %>
 <h1>タスク一覧</h1>
   
-  <% if @tasks.any? %>
+   
     <table class="table table-striped">
       <thead>
         <tr>
@@ -24,8 +26,23 @@
      <%= paginate @tasks %>   
     </div>
     
+    <%= link_to '新規タスクの追加',new_task_path,class: "btn btn-primary" %>
     
-    
-  <% end %>
+ <!--ログインが失敗した場合-->
+ <% else %>
+<div class="center jumbotron">
+  <div class="text-center">
+    <!--タスクリストWebアプリのトップページ-->
+    <h1>Your Tasklists</h1>
+   
+      <!--ログイン、サインアップリンクをトップページに配置-->
+     <%= link_to 'ログイン',login_path, class:'btn btn-primaly' %>
+      <!--新規ユーザ登録ページへ飛ぶリンク。signup_pathにリンク。-->
+      <%= link_to '今すぐ新規ユーザ登録',signup_path, class:'btn btn-primaly' %>
   
-  <%= link_to '新規タスクの追加',new_task_path,class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
+    
+  
+  
