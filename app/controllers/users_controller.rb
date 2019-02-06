@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # save成功時にはredirect_to rootにいきつく
+    # save成功時にはredirect_to root(ログイン画面)いきつく
     if @user.save
       flash[:success] = 'ユーザ登録しました。'
       redirect_to root_url
